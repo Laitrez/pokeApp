@@ -16,60 +16,32 @@ function Carte({ props }) {
     setvisible(false);
   };
 
+
+  const toggleModal = () => setvisible(!visible);
+
+  const backgroundColor = {
+    'Plante': '#3ca516',
+    'Feu': '#af6821',
+    'Poison': '#922eac',
+    'Eau': '#30a5b3',
+    'Vol': '#8598ad',
+    'Sol': '#7a4e2c',
+    'Fée': '#924a92',
+    'Combat': '#9b0f0f',
+    'Glace': '#5d879c',
+    'Psy': '#b67e4d',
+    'Électrik': '#858d16',
+    'Normal': '#36505c',
+    'Insecte': '#3e6141',
+    'Roche': '#575757',
+    'Spectre': '#724275',
+  }
+
+
+
   let colors;
   const setColors = (props) => {
-    props.apiTypes.length > 1
-      ? // If Yes
-        (colors = props.apiTypes[1].name)
-      : // props.apiTypes[1].name == "Plante"
-        // ? (colors = "#5AFA20")
-        // : props.apiTypes[1].name == "Feu"
-        // ? (colors = "#FF8E1C")
-        // : props.apiTypes[1].name == "Poison"
-        // ? (colors = "#D52EFF")
-        // : props.apiTypes[1].name == "Eau"
-        // ? (colors = "#36EBFF")
-        // : props.apiTypes[1].name == "Vol"
-        // ? (colors = "#C2DEFF")
-        // : props.apiTypes[1].name == "Sol"
-        // ? (colors = "#A66737")
-        // : props.apiTypes[1].name == "Fée"
-        // ? (colors = "#FF73FF")
-        // : props.apiTypes[1].name == "Combat"
-        // ? (colors = "#FF0D0D")
-        // : props.apiTypes[1].name == "Glace"
-        // ? (colors = "#99DDFF")
-        // : props.apiTypes[1].name == "Psy"
-        // ? (colors = "#FFAD66")
-        // : props.apiTypes[1].name == "Électrik"
-        // ? (colors = "#F0FF21")
-        // :
-        // (colors = "#34505C")
-        // if No
-        (colors = props.apiTypes[0].name);
-    //    props.apiTypes[0].name == "Plante"
-    // ? (colors = "#5AFA20")
-    // : props.apiTypes[0].name == "Feu"
-    // ? (colors = "#FF8E1C")
-    // : props.apiTypes[0].name == "Poison"
-    // ? (colors = "#D52EFF")
-    // : props.apiTypes[0].name == "Eau"
-    // ? (colors = "#36EBFF")
-    // : props.apiTypes[0].name == "Vol"
-    // ? (colors = "#C2DEFF")
-    // : props.apiTypes[0].name == "Sol"
-    // ? (colors = "#A66737")
-    // : props.apiTypes[0].name == "Fée"
-    // ? (colors = "#FF73FF")
-    // : props.apiTypes[0].name == "Combat"
-    // ? (colors = "#FF0D0D")
-    // : props.apiTypes[0].name == "Glace"
-    // ? (colors = "#99DDFF")
-    // : props.apiTypes[0].name == "Psy"
-    // ? (colors = "#FFAD66")
-    // : props.apiTypes[0].name == "Électrik"
-    // ? (colors = "#F0FF21")
-    // : (colors = "#34505C");
+    colors = props.apiTypes[props.apiTypes.length - 1].name
   };
   setColors(props);
   // fonction statistique
@@ -125,11 +97,11 @@ function Carte({ props }) {
 
   return (
     <>
-      <Card className={colors} style={{ width: "20rem" }}>
+      <Card style={{ width: "20rem" }}>
         {/* <Card> */}
         {/* <Card.Img variant="top" src={props.image} /> */}
-        <img style={{ backgroundColor: "#272727" }} src={props.image} alt="" />
-        <Card.Body className={colors}>
+        <img src={props.image} alt="" />
+        <Card.Body className={colors} style={{ backgroundColor: backgroundColor[colors] }}>
           <Card.Title>
             <div>{props.name}</div>
           </Card.Title>
