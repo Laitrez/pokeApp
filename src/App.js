@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import SearchBox from "./layout/searchBar";
+import Footer from "./layout/footer";
+import { Provider } from "react-redux";
+import { Store } from "@reduxjs/toolkit";
+import MainPoke from "./mainPoke";
+// import store from "./store";
+import store from "./store";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <header>
+          <SearchBox />
+        </header>
+        <main>
+          <MainPoke />
+        </main>
+        <footer>
+          <Footer />
+        </footer>
+      </div>
+    </Provider>
   );
 }
 

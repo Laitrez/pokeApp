@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: #272727;
 }
 
 .App-logo {
@@ -11,6 +12,10 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+
+.main {
+  background-color: #272727;
 }
 
 .App-header {
@@ -35,4 +40,50 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.card.Plante {
+  background-color: #3ca516;
+}
+.card.Feu {
+  background-color: #af6821;
+}
+.card.Poison {
+  background-color: #922eac;
+}
+.card.Eau {
+  background-color: #30a5b3;
+}
+.card.Vol {
+  background-color: #8598ad;
+}
+.card.Sol {
+  background-color: #7a4e2c;
+}
+.card.Fée {
+  background-color: #924a92;
+}
+.card.Combat {
+  background-color: #9b0f0f;
+}
+.card.Glace {
+  background-color: #5d879c;
+}
+.card.Psy {
+  background-color: #b67e4d;
+}
+.card.Électrik {
+  background-color: #858d16;
+}
+.card.Normal {
+  background-color: #36505c;
+}
+.card.Insecte {
+  background-color: #3e6141;
+}
+.card.Roche {
+  background-color: #575757;
+}
+.card.Spectre {
+  background-color: #724275;
 }
