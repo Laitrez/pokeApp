@@ -4,12 +4,15 @@ import * as apiPoke from "./apiPoke";
 import Carte from "./card";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useDispatch, useSelector } from "react-redux";
+import Button from "react-bootstrap/Button";
+import { BNext, BPrev } from "./BouttonN";
 
 function MainPoke() {
   const [Pokes, setPokes] = useState([]);
   const [error, setError] = useState(false);
   const dispatch = useDispatch();
   const { value } = useSelector(({ search }) => search);
+  let page = useSelector((state) => state.search.page);
   // test context----------------------------------------
 
   async function fetchPoke(searchTerme) {
@@ -32,7 +35,7 @@ function MainPoke() {
 
   useEffect(() => {
     fetchPoke(value);
-  }, [value]);
+  }, [value, page]);
 
   const AffPoke = ({ Poke }) => {
     return (
@@ -51,14 +54,24 @@ function MainPoke() {
     <>
       <Error />
       <div className="d-flex flex-wrap justify-content-center">
-        {/* {Pokes.map((Poke) => (
-          <AffPoke key={Poke.id} Poke={Poke} />
-        ))} */}
-        {Array.isArray(Pokes) ? (
-          Pokes.map((Poke) => <AffPoke key={Poke.id} Poke={Poke} />)
-        ) : (
-          <AffPoke key={Pokes.id} Poke={Pokes} />
-        )}
+        <div>
+          <BPrev />
+          <BNext />
+        </div>
+        <div className="d-flex flex-wrap justify-content-center">
+          {Array.isArray(Pokes) ? (
+            // Pokes.map((Poke) => <AffPoke key={Poke.id} Poke={Poke} />)
+            Pokes.map((Poke) => {
+              Poke.id > 15 * (page - 1) && Poke.id <= 15 * page ? 
+                <AffPoke key={Poke.id} Poke={Poke} />
+               : (
+                console.log(`${Poke.id}>${page}`)
+              );
+            })
+          ) : (
+            <AffPoke key={Pokes.id} Poke={Pokes} />
+          )}
+        </div>
       </div>
     </>
   );

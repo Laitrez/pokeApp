@@ -16,32 +16,29 @@ function Carte({ props }) {
     setvisible(false);
   };
 
-
   const toggleModal = () => setvisible(!visible);
 
   const backgroundColor = {
-    'Plante': '#3ca516',
-    'Feu': '#af6821',
-    'Poison': '#922eac',
-    'Eau': '#30a5b3',
-    'Vol': '#8598ad',
-    'Sol': '#7a4e2c',
-    'Fée': '#924a92',
-    'Combat': '#9b0f0f',
-    'Glace': '#5d879c',
-    'Psy': '#b67e4d',
-    'Électrik': '#858d16',
-    'Normal': '#36505c',
-    'Insecte': '#3e6141',
-    'Roche': '#575757',
-    'Spectre': '#724275',
-  }
-
-
+    Plante: "#3ca516",
+    Feu: "#fb8106",
+    Poison: "#d435e9",
+    Eau: "#1fdbf1",
+    Vol: "#b8d7f9",
+    Sol: "#ce7639",
+    Fée: "#f970b1",
+    Combat: "#ef536b",
+    Glace: "#6fd5cc",
+    Psy: "#fe7c6f",
+    Électrik: "#ffd13f",
+    Normal: "#9f9a62",
+    Insecte: "#75af7a",
+    Roche: "#cdbd67",
+    Spectre: "#8679ca",
+  };
 
   let colors;
   const setColors = (props) => {
-    colors = props.apiTypes[props.apiTypes.length - 1].name
+    colors = props.apiTypes[props.apiTypes.length - 1].name;
   };
   setColors(props);
   // fonction statistique
@@ -101,13 +98,16 @@ function Carte({ props }) {
         {/* <Card> */}
         {/* <Card.Img variant="top" src={props.image} /> */}
         <img src={props.image} alt="" />
-        <Card.Body className={colors} style={{ backgroundColor: backgroundColor[colors] }}>
+        <Card.Body
+          className={colors}
+          style={{ backgroundColor: backgroundColor[colors] }}
+        >
           <Card.Title>
             <div>{props.name}</div>
           </Card.Title>
           <Card.Text>{props.poke}</Card.Text>
           <Button
-            onClick={afficheModal}
+            onClick={toggleModal}
             style={{ maxWidth: "90%" }}
             variant="primary"
           >
@@ -115,7 +115,7 @@ function Carte({ props }) {
           </Button>
         </Card.Body>
       </Card>
-      <Modal show={visible} onHide={cacheModal}>
+      <Modal show={visible} onHide={toggleModal}>
         <img src={props.sprite} alt="" />
         <Modal.Title>{props.name}</Modal.Title>
         <Modal.Body>

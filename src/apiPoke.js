@@ -15,7 +15,8 @@ export const get = async (value) => {
 export const getPoke = async () => {
   try {
     const response = await axios.get(
-      `https://pokebuildapi.fr/api/v1/pokemon/limit/100`
+      // `https://pokebuildapi.fr/api/v1/pokemon/limit/100`
+      `https://pokebuildapi.fr/api/v1/pokemon`
     );
 
     //   setMovies(response.data.results);
