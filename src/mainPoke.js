@@ -37,7 +37,7 @@ function MainPoke() {
     fetchPoke(value);
   }, [value, page]);
 
-  const AffPoke = ({ Poke }) => {
+  const Affpoke = ({ Poke }) => {
     return (
       <div className="d-flex flex-wrap m-2  overflow-hidden">
         {/* <Carte img={Poke.image} titre={Poke.name} desc={Poke.slugg} /> */}
@@ -60,16 +60,16 @@ function MainPoke() {
         </div>
         <div className="d-flex flex-wrap justify-content-center">
           {Array.isArray(Pokes) ? (
-            // Pokes.map((Poke) => <AffPoke key={Poke.id} Poke={Poke} />)
-            Pokes.map((Poke) => {
-              Poke.id > 15 * (page - 1) && Poke.id <= 15 * page ? 
-                <AffPoke key={Poke.id} Poke={Poke} />
-               : (
-                console.log(`${Poke.id}>${page}`)
-              );
-            })
+            Pokes.map((Poke) => <Affpoke key={Poke.id} Poke={Poke} />)
           ) : (
-            <AffPoke key={Pokes.id} Poke={Pokes} />
+            // Pokes.map((Poke) => {
+            //   {
+            //     Poke.id > 15 * (page - 1) && Poke.id <= 15 * page
+            //       ? <Affpoke key={Poke.id} Poke={Poke} />
+            //       : console.log(`${Poke.id}>${page}`);
+            //   }
+            // })
+            <Affpoke key={Pokes.id} Poke={Pokes} />
           )}
         </div>
       </div>

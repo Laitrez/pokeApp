@@ -94,7 +94,10 @@ function Carte({ props }) {
 
   return (
     <>
-      <Card style={{ width: "20rem" }}>
+      <Card
+        // className={props.apiTypes[props.apiTypes.length - 1].name}
+        style={{ width: "20rem" }}
+      >
         {/* <Card> */}
         {/* <Card.Img variant="top" src={props.image} /> */}
         <img src={props.image} alt="" />
