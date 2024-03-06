@@ -10,7 +10,7 @@ export const BNext = () => {
   useEffect(() => console.log(page));
   let payload = {
     pageTest: page + 1,
-    pageMax: 10,
+    pageMax: 100,
   };
   return (
     <Button
@@ -29,7 +29,7 @@ export const BPrev = () => {
   const dispatch = useDispatch();
   let pagination = {
     pageTest: page - 1,
-    pageMax: 10,
+    pageMax: 100,
   };
   return (
     <Button

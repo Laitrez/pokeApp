@@ -24,7 +24,7 @@ function MainPoke() {
       } else {
         fetchedPokes = await apiPoke.getPoke();
       }
-      console.log("ici : " + JSON.stringify(fetchedPokes));
+      console.log(fetchedPokes);
       setPokes(fetchedPokes);
 
       setError(false);
@@ -54,20 +54,26 @@ function MainPoke() {
     <>
       <Error />
       <div className="d-flex flex-wrap justify-content-center">
-        <div>
+        <div className="m-3" style={{ width: "100%" }}>
           <BPrev />
           <BNext />
         </div>
-        <div className="d-flex flex-wrap justify-content-center">
+        <div
+          className="d-flex flex-wrap justify-content-center"
+          style={{ maxWidth: "130rem" }}
+        >
           {Array.isArray(Pokes) ? (
-            Pokes.map((Poke) => <Affpoke key={Poke.id} Poke={Poke} />)
+            Pokes.slice(15 * (page - 1), 15 * page).map((Poke) => (
+              // Pokes.map((Poke) =>
+              <Affpoke key={Poke.id} Poke={Poke} />
+            ))
           ) : (
             // Pokes.map((Poke) => {
-            //   {
+            //
             //     Poke.id > 15 * (page - 1) && Poke.id <= 15 * page
             //       ? <Affpoke key={Poke.id} Poke={Poke} />
             //       : console.log(`${Poke.id}>${page}`);
-            //   }
+            //
             // })
             <Affpoke key={Pokes.id} Poke={Pokes} />
           )}
